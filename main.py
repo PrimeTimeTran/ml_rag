@@ -58,9 +58,7 @@ bnb_config = BitsAndBytesConfig(
 
 print(torch.backends.mps.is_available())
 
-model = AutoModelForCausalLM.from_pretrained(
-    model_name, quantization_config=bnb_config, trust_remote_code=True, device_map='mps'
-)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map='mps')
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
