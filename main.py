@@ -17,8 +17,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 if torch.backends.mps.is_available():
     mps_device = torch.device("mps")
-    x = torch.ones(1, device=mps_device)
-    print (x)
+    print ("MPS Device")
 else:
     print ("MPS device not found.")
 
@@ -41,9 +40,9 @@ retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 model_name = "HuggingFaceH4/zephyr-7b-beta"
 
 # bnb_config = BitsAndBytesConfig(
-    # load_in_4bit=True, 
-    # bnb_4bit_use_double_quant=True, 
-    # bnb_4bit_quant_type="nf4", 
+    # load_in_4bit=True,
+    # bnb_4bit_use_double_quant=True,
+    # bnb_4bit_quant_type="nf4",
     # bnb_4bit_compute_dtype=torch.bfloat16
 # )
 
